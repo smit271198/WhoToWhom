@@ -22,14 +22,14 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        Intent in2=getIntent();
-        Bundle b2=in2.getBundleExtra("myBundle");
-        no=b2.getInt("Number");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        Intent in2=getIntent();
+        Bundle b2=in2.getBundleExtra("myBundle");
+        no=Integer.parseInt(b2.getString("Number"));
         LinearLayout ll = findViewById(R.id.ll);
         Display display = ((WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         int width = display.getWidth()/3;

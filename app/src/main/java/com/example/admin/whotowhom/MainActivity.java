@@ -3,6 +3,7 @@ package com.example.admin.whotowhom;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -24,11 +25,15 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         btn1.setOnClickListener(v->{
             s1=text1.getText().toString();
-            no=Integer.parseInt(s1);
+            //no=Integer.parseInt(s1);
+            Log.d("Int",s1);
             Intent in1=new Intent(MainActivity.this,SecondActivity.class);
+            Log.d("After Intent","Reached");
             Bundle b=new Bundle();
-            b.putInt("Number",no);
+            b.putString("Number",s1);
+            Log.d("After bundle put string","Reached");
             in1.putExtra("myBundle",b);
+            Log.d("After bundle intent","Reached");
             startActivity(in1);
         });
     }
