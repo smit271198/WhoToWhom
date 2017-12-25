@@ -32,7 +32,8 @@ public class SecondActivity extends AppCompatActivity {
         no=Integer.parseInt(b2.getString("Number"));
         LinearLayout ll = findViewById(R.id.ll);
         Display display = ((WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-        int width = display.getWidth()/3;
+        int width = display.getWidth()/2;
+        //LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width, LinearLayout.LayoutParams.WRAP_CONTENT);
         for(int i=0;i<no;i++){
             LinearLayout l = new LinearLayout(this);
             l.setOrientation(LinearLayout.HORIZONTAL);
@@ -43,7 +44,7 @@ public class SecondActivity extends AppCompatActivity {
             et2.setId(i);
             values.add(et2);
             et1.setHint("Name "+(i+1));
-            et2.setHint("Rupees");
+            et2.setHint("Rupees"+(i+1));
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width, LinearLayout.LayoutParams.WRAP_CONTENT);
             l.addView(et1,lp);
             l.addView(et2,lp);
@@ -73,6 +74,8 @@ public class SecondActivity extends AppCompatActivity {
         });
 
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width,LinearLayout.LayoutParams.WRAP_CONTENT);
+        //ScrollView sv=new ScrollView(this);
+        //sv.setLayoutParams(lp);
         l.addView(b,lp);
         ll.addView(l);
     }

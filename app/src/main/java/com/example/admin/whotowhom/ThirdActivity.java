@@ -2,12 +2,14 @@ package com.example.admin.whotowhom;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.WindowManager;
-import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class ThirdActivity extends AppCompatActivity {
     int no;
@@ -58,15 +60,18 @@ public class ThirdActivity extends AppCompatActivity {
         int width = display.getWidth()/1;
         LinearLayout l = new LinearLayout(this);
         l.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width, LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width, LinearLayout.LayoutParams.WRAP_CONTENT);
         for(int i=0;i<no;i++){
             if(take[i]>0){
                 for(int j=0;j<no;j++){
                     if(take[i]!=0){
                         if(ret[j]>0){
-                            EditText et1 = new EditText(this);
+                            final TextView et1 = new TextView(this);
                             if((take[i]-ret[j])>0){
                                 et1.setText(name[i]+" has to take money from "+name[j]+" = "+ret[j]);
+                                et1.setTextColor(Color.parseColor("#00E5FF"));
+                                et1.setTextSize(20);
+                                et1.setTypeface(null, Typeface.BOLD_ITALIC);
                                 //System.out.println(name[i]+" has to take money from "+name[j]+" = "+ret[j]);
                                 l.addView(et1,lp);
                                 take[i]=take[i]-ret[j];
@@ -74,6 +79,9 @@ public class ThirdActivity extends AppCompatActivity {
                             }
                             else if((take[i]-ret[j])<0){
                                 et1.setText(name[i]+" has to take money from "+name[j]+" = "+take[i]);
+                                et1.setTextColor(Color.parseColor("#00E5FF"));
+                                et1.setTextSize(20);
+                                et1.setTypeface(null, Typeface.BOLD_ITALIC);
                                 l.addView(et1,lp);
                                 //System.out.println(name[i]+" has to take money from "+name[j]+" = "+take[i]);
                                 take[i]=0;
@@ -81,6 +89,9 @@ public class ThirdActivity extends AppCompatActivity {
                             }
                             else if((take[i]-ret[j])==0){
                                 et1.setText(name[i]+" has to take money from "+name[j]+" = "+ret[j]);
+                                et1.setTextColor(Color.parseColor("#00E5FF"));
+                                et1.setTextSize(20);
+                                et1.setTypeface(null, Typeface.BOLD_ITALIC);
                                 l.addView(et1,lp);
                                 //System.out.println(name[i]+" has to take money from "+name[j]+" = "+ret[j]);
                                 take[i]=0;
